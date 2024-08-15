@@ -78,7 +78,7 @@ def create_model(num_classes):
 To train the model on your dataset, follow these steps:
 
 1. Prepare your dataset in the required format (images and annotations).
-  - [Global Wheat Challenge Dataset](https://www.kaggle.com/datasets/ipythonx/global-wheat-challenge)
+2. Download Preprocessed Images with bounding box Coordinates [Global Wheat Challenge Dataset](https://www.kaggle.com/datasets/ipythonx/global-wheat-challenge)
 3. Use the following command to start training:
 
 ```python
