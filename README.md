@@ -1,7 +1,3 @@
-# CODXO_Object_Detection_System_Using_Fast_RCNN
-
-That’s fantastic! Building an RCNN (Region-based Convolutional Neural Network) model for detecting wheat crops is a significant achievement and can greatly contribute to agricultural monitoring and yield estimation. Below, I’ll outline a potential README file for your project, detailing its purpose, installation instructions, usage, and more.
-
 # Wheat Crop Detection using RCNN
 
 This project implements a Region-based Convolutional Neural Network (RCNN) model for detecting wheat crops in images. The model is designed to assist in agricultural monitoring, enabling farmers and researchers to assess crop health and density efficiently.
