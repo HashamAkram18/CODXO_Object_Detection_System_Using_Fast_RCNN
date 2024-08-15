@@ -58,22 +58,19 @@ This project implements a Region-based Convolutional Neural Network (RCNN) model
 To run inference on a single image:
 
 ```python
-from model import RCNNModel  # Import your RCNN model class
-import cv2
+from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 
-# Load the trained model
-model = RCNNModel()
-model.load_state_dict(torch.load('path_to_trained_model.pth'))
-model.eval()
-
-# Load an image
-image = cv2.imread('path_to_image.jpg')
-
-# Perform detection
-detections = model.detect(image)
-
-# Visualize results
-model.visualize_detections(image, detections)
+def create_model(num_classes):
+    # Load a pre-trained model
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+    
+    # Get the number of input features for the classifier
+    in_features = model.roi_heads.box_predictor.cls_score.in_features # Get in_features before replacing
+    
+    # Replace the pre-trained head with a new one (adjusting for the number of classes)
+    model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
+    
+    return model
 ```
 
 ### Training the Model
@@ -81,7 +78,8 @@ model.visualize_detections(image, detections)
 To train the model on your dataset, follow these steps:
 
 1. Prepare your dataset in the required format (images and annotations).
-2. Use the following command to start training:
+  - [Global Wheat Challenge Dataset](https://www.kaggle.com/datasets/ipythonx/global-wheat-challenge)
+3. Use the following command to start training:
 
 ```python
 python train.py --data_dir path_to_data --num_epochs 50
@@ -92,6 +90,17 @@ Replace `path_to_data` with the path to your dataset.
 ## Evaluation
 
 After training, you can evaluate the model's performance 
+```
+# Specify the number of classes (1 class + background)
+num_classes = 2
+
+# Create a model instance
+model = create_model(num_classes)
+
+# Load the saved model state dictionary
+model.load_state_dict(torch.load('model_weights.pth', map_location=torch.device('cpu')))
+
+```
 
 ## Results
 
