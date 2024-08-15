@@ -37,17 +37,12 @@ This project implements a Region-based Convolutional Neural Network (RCNN) model
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/wheat-crop-detection.git
-   ```
-
-2. **Navigate to the project directory**:
-   ```bash
-   cd wheat-crop-detection
+   https://github.com/HashamAkram18/CODXO_Object_Detection_System_Using_Fast_RCNN.git
    ```
 
 3. **Create a virtual environment (optional but recommended)**:
    ```bash
-   python -m venv venv
+   python -m venv fast-RCNN
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
@@ -96,11 +91,7 @@ Replace `path_to_data` with the path to your dataset.
 
 ## Evaluation
 
-After training, you can evaluate the model's performance using:
-
-```python
-python evaluate.py --model_path path_to_trained_model.pth --data_dir path_to_test_data
-```
+After training, you can evaluate the model's performance 
 
 ## Results
 
@@ -127,4 +118,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Feel free to modify this README template according to your specific project details, such as the model architecture, dataset, and any unique features you’ve implemented. If you have any additional information or specific sections you want to include, let me know!
